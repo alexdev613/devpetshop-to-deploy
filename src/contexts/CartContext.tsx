@@ -8,6 +8,7 @@ interface CartContextData {
   removeItemCart: (product: CartProps) => void;
   total: string;
   qtdProducts: number | undefined;
+  clearCart: () => void;
 }
 
 interface CartProps {
@@ -97,6 +98,12 @@ function CartProvider({children}: ProviderProps) {
     setQtdProducts(qtdItems);
   }
 
+  function clearCart() {
+    setCart([]);
+    setTotal("");
+    setQtdProducts(0);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -105,7 +112,8 @@ function CartProvider({children}: ProviderProps) {
         addItemToCart,
         removeItemCart,
         total,
-        qtdProducts
+        qtdProducts,
+        clearCart,
       }}>
       {children}
     </CartContext.Provider>

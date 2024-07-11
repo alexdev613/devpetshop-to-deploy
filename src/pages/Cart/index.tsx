@@ -3,10 +3,11 @@ import { CartContext } from '../../contexts/CartContext';
 import { Link } from 'react-router-dom';
 
 import { ModalOrder } from '../../components/modal/index';
+import toast from 'react-hot-toast';
 
 export function Cart() {
 
-  const { cart, total, addItemToCart, removeItemCart, qtdProducts } = useContext(CartContext);
+  const { cart, total, addItemToCart, removeItemCart, qtdProducts, clearCart } = useContext(CartContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -15,6 +16,20 @@ export function Cart() {
   }
 
   const closeModal = () => {
+    clearCart();
+
+    toast.success("🐾 Sua compra efetuda com sucesso! 🐾", {
+      duration: 3000,
+
+      style: {
+        borderRadius: 10,
+        backgroundColor: "rgb(0, 125, 33)",
+        fontWeight: 600,
+        color: "navy",
+        height: 48,
+      },
+    })
+    
     setIsModalOpen(false);
   }
 
