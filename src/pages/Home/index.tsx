@@ -1,11 +1,11 @@
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import { CartContext } from "../../contexts/CartContext";
 
-import { api } from "../../services/api";
 import toast from "react-hot-toast";
+import { productsData } from "../../data";
 
 export interface ProductsProps {
   id: string;
@@ -15,19 +15,10 @@ export interface ProductsProps {
   cover: string;
 }
 
+
 export function Home() {
   const {addItemToCart} = useContext(CartContext);
-  const [products, setProducts] = useState<ProductsProps[]>([]);
-  
-  useEffect(() => {
-    async function getProducts() {
-      const resposta = await api.get("/products");
-      setProducts(resposta.data)
-      // console.log(resposta.data);
-    }
-
-    getProducts();
-  }, []);
+  const [products] = useState<ProductsProps[]>(productsData);
 
   function handleAddItemToCart(productItem: ProductsProps) {
     console.log(productItem.title);

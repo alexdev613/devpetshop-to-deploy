@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 import { ProductsProps } from '../Home';
 
@@ -8,31 +7,24 @@ import { CartContext } from '../../contexts/CartContext';
 
 import { BsCart3 } from 'react-icons/bs';
 import toast from 'react-hot-toast';
+import { productsData } from '../../data';
 
 export function ProductDetails() {
-  const { id } = useParams();
-  const [product, setProduct] = useState<ProductsProps>();
+  const { id } = useParams<{ id:string }>();
+  const [product, setProduct] = useState<ProductsProps | undefined>();
 
   const navigate = useNavigate();
 
   const { addItemToCart } = useContext(CartContext);
 
   useEffect(() => {
-    async function getProduct() {
-      try {
-        const response = await api.get(`/products/${id}`);
-        if (response.data) {
-          setProduct(response.data);
-        } else {
-          navigate("*");
-        }
-      } catch (error) {
-        navigate("*")
-      }
+    const productItem = productsData.find((item) => item.id === id);
+    if (productItem) {
+      setProduct(productItem);
+    } else {
+      navigate("*");
     }
-
-    getProduct()
-  }, [id]);
+  }, [id, navigate]);
 
   function handleAddCartItem(product: ProductsProps) {
     toast.success("Produto adicionado no carrinho. 🐾", {
