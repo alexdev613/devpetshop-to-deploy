@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { productsData } from "../../data";
 import { Services } from "./sections/OurServices";
 import { Banners } from "./sections/Banners";
+import { About } from "./sections/About";
 
 export interface ProductsProps {
   id: string;
@@ -41,9 +42,10 @@ export function Home() {
   return(
     <div>
       <Banners />
+      <About />
       <Services />
-      <main className="w-full max-w-7xl px-4 mx-auto pb-8">
-        <h1 className="text-2xl font-bold text-center mt-10 mb-7" >Seleção de produtos</h1>
+      <main className="w-full max-w-7xl px-4 mx-auto pt-8 pb-20">
+        <h1 className="text-3xl font-bold text-center my-8" >Nossos Produtos:</h1>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           

@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import dog_and_cat from '../../../../assets/seu-amiguinho-pet.png';
-import dog_cat_bird from '../../../../assets/cachorrogatocalopsita.png';
+import dog_cat_bird from '../../../../assets/dog_cat_calopsita.png';
 import agende from '../../../../assets/ligue-ja-pet.png';
 
 interface BannerProps {
