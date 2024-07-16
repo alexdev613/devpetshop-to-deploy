@@ -116,19 +116,20 @@ export function Cart() {
       </div>
 
       {cart.length !== 0 && (
-        <div className='w-72 mt-4 border-slate-300 border-2 py-2 px-3 float-right mb-10'>
-          <p className=''>Quantidade de produtos: {qtdProducts}</p>
-          <p className="font-bold  mb-4">Total: {total}</p>
-          <button
-            onClick={handleCheckout}
-            className='rounded-full bg-green-500 border-green-200 border-2 w-full py-1 mb-2'
-          >
-            Fechar Pedido
-          </button>
+        <div className='w-full flex flex-row-reverse px-3'>
+          <div className='w-full sm:w-72 mt-4 border-slate-300 border-2 py-2 px-3 mb-10'>
+            <p className=''>Quantidade de produtos: {qtdProducts}</p>
+            <p className="font-bold  mb-4">Total: {total}</p>
+            <button
+              onClick={handleCheckout}
+              className='rounded-full bg-green-500 border-green-200 border-2 w-full py-1 mb-2'
+            >
+              Fechar Pedido
+            </button>
+          </div>
         </div>
       )}
 
-      
     </div>
   )
 }
