@@ -45,7 +45,7 @@ export function Home() {
       <Banners />
       <About />
       <Services />
-      <main id='products' className="w-full max-w-7xl px-4 mx-auto pt-8 pb-20">
+      <main id='products' className="bg-dogFoot w-full max-w-7xl px-4 mx-auto pt-8 pb-20">
         <h2 className="flex flex-wrap items-center justify-center text-3xl sm:text-5xl mt-4 text-slate-600 font-bold my-10">
           <span>Nossos <span className="text-[#81AAB8]">Produtos</span></span>
         </h2>

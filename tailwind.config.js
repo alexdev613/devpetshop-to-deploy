@@ -9,6 +9,9 @@ export default {
       screens: {
         'max-360': { 'max': '360px' },
         'max-300': { 'max': '300px' }
+      },
+      backgroundImage: {
+        dogFoot: "url('/dogfoot.png')"
       }
     },
   },
