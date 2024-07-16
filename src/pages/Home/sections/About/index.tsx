@@ -13,7 +13,7 @@ export function About() {
         <div className='flex flex-col mb-8 gap-4 text-slate-800 max-w-[512px] px-2'>
           <p className='font-semibold text-lg sm:text-xl '>Bem vindo ao PetShopDev!</p>
           <p className='text-base sm:text-lg '>
-          Cuide do seu melhor amigo com o que há de melhor! Confira nossas ofertas e produtos exclusivos para o seu pet! Cuide do seu melhor amigo com o que há de melhor! Confira nossas ofertas e produtos exclusivos para o seu pet!
+            Somos Alex e Betânia, um casal que fundou a PetShopDev em 2019 com a visão de estabelecer um lugar onde os animais de estimação recebessem um cuidado excepcional. Desde então, evoluímos e nos transformamos em uma comunidade dedicada ao bem-estar animal, com muitos clientes satisfeitos e pets felizes!
           </p>
         </div>
       </div>
@@ -25,7 +25,7 @@ export function About() {
         <div className='flex flex-col mb-8 gap-4 text-slate-800 max-w-[512px] px-2'>
           <p className='font-semibold text-lg sm:text-xl '>Bem vindo ao PetShopDev!</p>
           <p className='text-base sm:text-lg '>
-          Cuide do seu melhor amigo com o que há de melhor! Confira nossas ofertas e produtos exclusivos para o seu pet! Cuide do seu melhor amigo com o que há de melhor! Confira nossas ofertas e produtos exclusivos para o seu pet!
+            Temos nos dedicado a criar um ambiente onde os animais e seus donos possam encontrar tudo o que precisam em um só lugar! Estamos localizados na Rua: Silvestre Doméstico, 613. Venha nos visitar e descubra tudo o que podemos oferecer para tornar a vida do seu pet ainda mais segura, alegre e saudável!
           </p>
         </div>
       </div>
