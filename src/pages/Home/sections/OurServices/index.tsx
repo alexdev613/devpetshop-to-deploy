@@ -17,8 +17,8 @@ const services: ServiceProps[] = [
 
 export function Services() {
   return (
-    <section id="#services" className="flex flex-col items-center justify-center mx-auto mt-4 w-full max-w-7xl">
-      <h1 className="flex flex-wrap items-center justify-center text-3xl sm:text-5xl mt-4 text-slate-600 sm:font-bold">
+    <section id="services" className="flex flex-col items-center justify-center mx-auto my-8 md:my-16 w-full max-w-7xl">
+      <h1 className="flex flex-wrap items-center justify-center text-3xl sm:text-5xl mt-4 text-slate-600 font-bold">
         <span>Nossos <span className="text-[#81AAB8]">serviços:</span></span>
       </h1>
 

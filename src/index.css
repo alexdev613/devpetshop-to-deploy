@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
