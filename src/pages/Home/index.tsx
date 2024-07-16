@@ -6,6 +6,8 @@ import { CartContext } from "../../contexts/CartContext";
 
 import toast from "react-hot-toast";
 import { productsData } from "../../data";
+import { Services } from "./sections/OurServices";
+import { Banners } from "./sections/Banners";
 
 export interface ProductsProps {
   id: string;
@@ -38,6 +40,8 @@ export function Home() {
 
   return(
     <div>
+      <Banners />
+      <Services />
       <main className="w-full max-w-7xl px-4 mx-auto pb-8">
         <h1 className="text-2xl font-bold text-center mt-10 mb-7" >Seleção de produtos</h1>
 
