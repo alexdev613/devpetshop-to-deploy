@@ -9,6 +9,7 @@ import { productsData } from "../../data";
 import { Services } from "./sections/OurServices";
 import { Banners } from "./sections/Banners";
 import { About } from "./sections/About";
+import { FeedbackSection } from "./sections/FeedbackSection";
 
 export interface ProductsProps {
   id: string;
@@ -44,8 +45,10 @@ export function Home() {
       <Banners />
       <About />
       <Services />
-      <main className="w-full max-w-7xl px-4 mx-auto pt-8 pb-20">
-        <h1 className="text-3xl font-bold text-center my-8" >Nossos Produtos:</h1>
+      <main id='products' className="w-full max-w-7xl px-4 mx-auto pt-8 pb-20">
+        <h2 className="flex flex-wrap items-center justify-center text-3xl sm:text-5xl mt-4 text-slate-600 font-bold my-10">
+          <span>Nossos <span className="text-[#81AAB8]">Produtos</span></span>
+        </h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           
@@ -78,6 +81,8 @@ export function Home() {
 
         </div>
       </main>
+
+      <FeedbackSection />
     </div>
   )
 }

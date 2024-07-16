@@ -24,6 +24,21 @@ export function Header() {
           </h1>
         </Link>
 
+        <div className="flex gap-3 text-xs md:text-lg font-semibold text-slate-700">
+          <Link to='#about' target="_parent">
+            <h3>SOBRE</h3>
+          </Link>
+          <Link to='#services' target="_parent">
+            <h3>SERVIÇOS</h3>
+          </Link>
+          <Link to='#products' target="_parent">
+            <h3>LOJA</h3>
+          </Link>
+          <Link to='#feedback' target="_parent">
+            <h3>DEPOIMENTOS</h3>
+          </Link>
+        </div>
+
         <Link to="/carrinho" className="relative">
           <FiShoppingCart size={24} color="#121212" />
           {cartAmount > 0 && (
