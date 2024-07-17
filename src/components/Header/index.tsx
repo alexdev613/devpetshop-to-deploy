@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import logo from '../../assets/logopet.png';
+import { FaBars } from "react-icons/fa";
 
 export function Header() {
   
   const {cartAmount} = useContext(CartContext);
+  const location = useLocation();
 
   return (
     <header className="w-full px-4 bg-slate-300">
@@ -16,22 +18,35 @@ export function Header() {
           <span className="hidden md:block">PetShopDev</span>
         </Link>
 
-        <div className="flex gap-3 text-normal md:text-lg font-semibold text-slate-700">
-          <Link to='#about' target="_parent" className="hover:bg-slate-400">
-            <h3>SOBRE</h3>
-          </Link>
-          <Link to='#services' target="_parent" className="hover:bg-slate-400">
-            <h3>SERVIÇOS</h3>
-          </Link>
-          <Link to='#products' target="_parent" className="hover:bg-slate-400">
-            <h3>LOJA</h3>
-          </Link>
-          <Link to='#feedback' target="_parent" className="hover:bg-slate-400">
-            <h3>DEPOIMENTOS</h3>
-          </Link>
-        </div>
+        {location.pathname === '/carrinho' ? (
+          <div className="gap-3 text-normal hidden sm:flex md:text-lg font-semibold text-slate-700">
+            <Link to='/' className="hover:bg-slate-400">
+              <h3>HOME</h3>
+            </Link>
+            <Link to='/favorites' className="hover:bg-slate-400">
+              <h3>FAVORITOS</h3>
+            </Link>
+          </div>
+        ) : (
+          <div className="gap-3 text-normal hidden sm:flex md:text-lg font-semibold text-slate-700">
+            <Link to='#about' target="_parent" className="hover:bg-slate-400">
+              <h3>SOBRE</h3>
+            </Link>
+            <Link to='#services' target="_parent" className="hover:bg-slate-400">
+              <h3>SERVIÇOS</h3>
+            </Link>
+            <Link to='#products' target="_parent" className="hover:bg-slate-400">
+              <h3>LOJA</h3>
+            </Link>
+            <Link to='#feedback' target="_parent" className="hover:bg-slate-400">
+              <h3>DEPOIMENTOS</h3>
+            </Link>
+          </div>
+        )}
 
         <div className="flex gap-3">
+          <FaBars size={24} className="sm:hidden" />
+
           <Link to='' className="relative">
             <FiHeart size={24} color="#121212" />
           </Link>
