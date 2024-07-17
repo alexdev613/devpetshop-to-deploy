@@ -47,7 +47,6 @@ export function FeedbackSection() {
       </div>
       <Swiper
         slidesPerView={1}
-        pagination
         autoplay={{delay: 7200}}
         className='w-[20rem] mx-0'
       >
@@ -55,7 +54,7 @@ export function FeedbackSection() {
           <SwiperSlide key={item.id} className="px-4 py-6">
             <div className="relative text-center flex flex-col max-w-[18rem] px-0 py-5 rounded-3xl border bg-slate-300/30">
               <img
-                className="rounded-full border border-slate-50 w-[15rem] min-w-[12.5rem] mx-auto h-[15rem] min-h-[12.5rem] mb-4 object-cover"
+                className="rounded-full border border-slate-50 w-[9rem] mx-auto h-[9rem] mb-4 object-cover"
                 src={item.photo}
                 alt={`Foto do cliente ${item.name}`}
               />
