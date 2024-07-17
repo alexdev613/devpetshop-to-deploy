@@ -142,7 +142,10 @@ export function Header() {
       </header>
 
       {/* Menu "balão" à direita do header */}
-      <div className={`fixed top-24 right-8 bg-slate-100 rounded-lg font-semibold shadow-lg ${menuOpen ? 'block' : 'hidden'} px-4 py-2 sm:hidden z-20`}>
+      <div
+        className={`absolute top-24 right-4 bg-slate-100 rounded-md font-semibold shadow-lg
+        ${menuOpen ? 'block' : 'hidden'} px-6 py-3 sm:hidden z-20`}
+      >
         <div className="max-w-7xl flex flex-col gap-3">
           {getLinks()}
         </div>
