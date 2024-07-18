@@ -10,6 +10,7 @@ import { Services } from "./sections/OurServices";
 import { Banners } from "./sections/Banners";
 import { About } from "./sections/About";
 import { FeedbackSection } from "./sections/FeedbackSection";
+import { ScrollIcons } from "../../components/ScrollIcons";
 
 export interface ProductsProps {
   id: string;
@@ -57,6 +58,7 @@ export function Home() {
 
   return(
     <div>
+      <ScrollIcons />
       <Banners />
       <About />
       <Services />
