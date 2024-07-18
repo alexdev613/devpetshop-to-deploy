@@ -6,7 +6,6 @@ import { Cart } from './pages/Cart';
 import { Layout } from './components/Layout';
 import { ProductDetails } from './pages/Details';
 import { NotFound } from './pages/NotFound';
-import { Favorites } from './pages/Favorites';
 
 const router = createBrowserRouter([
   {
@@ -19,10 +18,6 @@ const router = createBrowserRouter([
       {
         path: "/carrinho",
         element: <Cart />
-      },
-      {
-        path: "/favoritos",
-        element: <Favorites />
       },
       {
         path: "/produto/:id",

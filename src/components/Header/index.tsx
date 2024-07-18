@@ -2,7 +2,7 @@ import { Link, useLocation, useMatch } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
-import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
 import logo from '../../assets/logopet.png';
 
@@ -12,7 +12,6 @@ export function Header() {
   const location = useLocation();
   const matchHome = useMatch('/');
   const matchCart = useMatch('/carrinho');
-  const matchFavorites = useMatch('/favoritos');
   const matchProductDetails = useMatch('/produto/:id');
 
   // State para controlar a visibilidade dos links de menu
@@ -20,8 +19,7 @@ export function Header() {
   
   // Verifica se a rota atual é uma rota "not found":
   const isNotFoundPage = !matchHome && 
-                         !matchCart && 
-                         !matchFavorites && 
+                         !matchCart &&  
                          !matchProductDetails &&
                          location.pathname !== '/';
   
@@ -48,21 +46,8 @@ export function Header() {
           <Link to='/' className="hover:bg-slate-400" onClick={closeMenu}>
             <h3>HOME</h3>
           </Link>
-          <Link to='/favoritos' className="hover:bg-slate-400" onClick={closeMenu}>
-            <h3>FAVORITOS</h3>
-          </Link>
-        </>
-      );
-    }
-
-    if (matchFavorites) {
-      return (
-        <>
-          <Link to='/' className="hover:bg-slate-400" onClick={closeMenu}>
-            <h3>HOME</h3>
-          </Link>
-          <Link to='/carrinho' className="hover:bg-slate-400" onClick={closeMenu}>
-            <h3>CARRINHO</h3>
+          <Link to='/#products' className="hover:bg-slate-400" onClick={closeMenu}>
+            <h3>PRODUTOS</h3>
           </Link>
         </>
       );
@@ -122,10 +107,6 @@ export function Header() {
           </div>
 
           <div className="flex gap-3 items-center">
-
-            <Link to='/favoritos' className="relative" onClick={closeMenu}>
-              <FiHeart size={24} color="#121212" />
-            </Link>
 
             <Link to="/carrinho" className="relative" onClick={closeMenu}>
               <FiShoppingCart size={24} color="#121212" />
