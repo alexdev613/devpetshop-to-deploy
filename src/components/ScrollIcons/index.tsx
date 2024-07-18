@@ -40,7 +40,7 @@ export function ScrollIcons() {
 
   return (
     <div
-      className={`fixed bottom-6 right-8 flex flex-col gap-3 ${
+      className={`fixed bottom-6 right-8 flex flex-col gap-2 ${
         showIcons ? "block" : "hidden"
       } rounded-full py-2 px-1 bg-white`}
     >
@@ -51,7 +51,7 @@ export function ScrollIcons() {
         <BsFillXCircleFill size={20} color="red" />
       </button>
 
-      <button className="p-3 bg-blue-500 rounded-full" onClick={scrollToTop}>
+      <button className="p-3.5 bg-blue-500 rounded-full flex" onClick={scrollToTop}>
         <FaArrowUp size={20} />
       </button>
 
