@@ -42,7 +42,7 @@ export function ScrollIcons() {
     <div
       className={`fixed bottom-6 right-8 flex flex-col gap-2 ${
         showIcons ? "block" : "hidden"
-      } rounded-full py-2 px-1 bg-white`}
+      } rounded-full py-2 px-1 bg-white z-40`}
     >
       <button
         className="-right-3 -top-4 absolute p-1 bg-white rounded-full"
