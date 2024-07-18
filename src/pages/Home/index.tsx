@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from "react";
-import { BsCart3 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import { CartContext } from "../../contexts/CartContext";

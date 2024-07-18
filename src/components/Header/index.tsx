@@ -62,8 +62,8 @@ export function Header() {
           <Link to='/carrinho' className="hover:bg-slate-400" onClick={closeMenu}>
             <h3>CARRINHO</h3>
           </Link>
-          <Link to='/favoritos' className="hover:bg-slate-400" onClick={closeMenu}>
-            <h3>FAVORITOS</h3>
+          <Link to='/#products' className="hover:bg-slate-400" onClick={closeMenu}>
+            <h3>LOJA</h3>
           </Link>
         </>
       );
