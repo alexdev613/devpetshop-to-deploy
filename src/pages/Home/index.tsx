@@ -68,29 +68,29 @@ export function Home() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           
           {products.map( (productItem) => (
-            <section key={productItem.id} className="w-full border-2 border-slate-500 rounded-lg px-1 py-4 bg-gray-100">
-            <Link to={`/produto/${productItem.id}`}>
-              <img
-                className="w-full rounded-xl mb-2 border-2 border-gray-200/30"
-                src={productItem.cover}
-                alt={productItem.title}
-              />
-            <p className="font-medium mt-1 mb-2 text-center">{productItem.title}</p>
-            </Link>
+            <section key={productItem.id} className="w-full border-2 border-slate-200 rounded-lg px-4 py-4 mx-4 bg-gray-100">
+              <Link to={`/produto/${productItem.id}`}>
+                <img
+                  className="w-full rounded-xl mb-2 border-2 border-gray-200/30"
+                  src={productItem.cover}
+                  alt={productItem.title}
+                />
+              <p className="font-medium mt-1 mb-2 text-center">{productItem.title}</p>
+              </Link>
 
-            <div className="flex gap-2 items-center justify-center">
-              <strong>
-                {productItem.price.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}
-              </strong>
-              
-              <button
-                onClick={() => handleAddItemToCart(productItem)}
-                className="bg-green-800 rounded-xl p-1.5 border-2 border-green-500 hover:bg-green-700">
-                <BsCart3 size={18} color="#FFF"/>
-              </button>
-            </div>
+              <div className="flex gap-2 items-center justify-center">
+                <strong>
+                  {productItem.price.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}
+                </strong>
+                
+                <button
+                  onClick={() => handleAddItemToCart(productItem)}
+                  className="bg-green-800 rounded-xl p-1.5 border-2 border-green-500 hover:bg-green-700">
+                  <BsCart3 size={18} color="#FFF"/>
+                </button>
+              </div>
 
-          </section>
+            </section>
           ))}
           
 
