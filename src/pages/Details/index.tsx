@@ -5,10 +5,10 @@ import { ProductsProps } from '../Home';
 
 import { CartContext } from '../../contexts/CartContext';
 
-import { BsCart3 } from 'react-icons/bs';
 import toast from 'react-hot-toast';
 import { productsData } from '../../data';
 import { ScrollToTop } from '../../components/ScrollToTop';
+import { ButtonAddItem } from '../../components/ButtonAddItem';
 
 export function ProductDetails() {
   const { id } = useParams<{ id:string }>();
@@ -44,38 +44,28 @@ export function ProductDetails() {
 
   return (
     <div>
-      <main className="w-full max-w-7xl px-4 mx-auto my-6">
+      <main className="w-full max-w-7xl px-4 mx-auto my-8">
         <ScrollToTop />
-        <h1 className='font-bold text-center text-2xl'>Detalhes do Produto {product?.id}</h1>
         
         {product && (
-          <section className='w-full'>
-            <div className='flex flex-col lg:flex-row'>
-              <img
-                className='flex-1 w-full max-h-72 object-contain'
-                src={product.cover}
-                alt={product.title}
-              />
+          <section className='flex items-center justify-center min-h-[60vh] flex-col max-w-4xl mx-auto shadow-2xl mb-2 gap-4 py-6'>
+            <h2 className='text-slate-700 font-bold text-2xl text-center px-4'>{product.title}</h2>
+            <img
+              className='flex-1 w-full max-h-72 object-contain'
+              src={product.cover}
+              alt={product.title}
+            />
 
-              <div className='flex-1'>
-                <h1 className='font-bold text-xl mt-4 mb-2'>{product.title}</h1>
-                <p className='my-4 text-justify'>{product.description}</p>
-                <div className='gap-2 flex flex-col sm:items-start items-center'>
-                  <strong >
-                    {product.price.toLocaleString("pt-BR", {
-                      style: "currency", currency: "BRL"
-                    })}
-                  </strong>
-                  <button
-                    className=" bg-green-900 rounded-xl px-4 py-1 border-2 border-green-300 flex items-center hover:bg-green-700"
-                    onClick={ () => handleAddCartItem(product) }
-                  >
-                    <span className='text-white mr-2'>Adicionar</span>
-                    <BsCart3 size={20} color="#FFF"/>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <p className='text-slate-800 text-xl text-justify mx-6 sm:mx-20'>{product?.description}</p>
+              
+            <strong className='text-slate-700 text-2xl font-bold'>
+              {product.price.toLocaleString("pt-BR", {
+                style: "currency", currency: "BRL"
+              })}
+            </strong>
+              
+            <ButtonAddItem onClick={() => handleAddCartItem(product)} label='Adicionar' />
+
           </section>
         )}
         
