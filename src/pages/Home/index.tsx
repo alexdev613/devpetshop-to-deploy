@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
@@ -21,6 +21,21 @@ export interface ProductsProps {
 
 
 export function Home() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   const {addItemToCart} = useContext(CartContext);
   const [products] = useState<ProductsProps[]>(productsData);
 

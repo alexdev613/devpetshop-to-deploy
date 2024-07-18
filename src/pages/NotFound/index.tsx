@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import notFound from '../../assets/404.png';
+import { ScrollToTop } from "../../components/ScrollToTop";
 
 export function NotFound() {
   return (
     <div className="w-full max-w-7xl px-4 mx-auto flex flex-col items-center mt-8">
+      <ScrollToTop />
       <h1 className="text-4xl font-bold">404</h1>
       <h2 className="text-2xl font-bold mb-4 text-center">Página não encontrada!</h2>
       <Link to="/" className="flex flex-col items-center">

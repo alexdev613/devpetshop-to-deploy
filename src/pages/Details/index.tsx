@@ -8,6 +8,7 @@ import { CartContext } from '../../contexts/CartContext';
 import { BsCart3 } from 'react-icons/bs';
 import toast from 'react-hot-toast';
 import { productsData } from '../../data';
+import { ScrollToTop } from '../../components/ScrollToTop';
 
 export function ProductDetails() {
   const { id } = useParams<{ id:string }>();
@@ -44,6 +45,7 @@ export function ProductDetails() {
   return (
     <div>
       <main className="w-full max-w-7xl px-4 mx-auto my-6">
+        <ScrollToTop />
         <h1 className='font-bold text-center text-2xl'>Detalhes do Produto {product?.id}</h1>
         
         {product && (
