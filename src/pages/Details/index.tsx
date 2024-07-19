@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { ProductsProps } from '../Home';
 
@@ -44,7 +44,7 @@ export function ProductDetails() {
 
   return (
     <div>
-      <main className="w-full max-w-7xl px-4 mx-auto my-8">
+      <main className="w-full max-w-7xl px-4 mx-auto my-8 flex flex-col items-center ">
         <ScrollToTop />
         
         {product && (
@@ -68,6 +68,15 @@ export function ProductDetails() {
 
           </section>
         )}
+
+        <Link
+          to="/#products"
+          className='text-center mt-10 py-2.5 px-3 rounded-xl text-white font-semibold
+          bg-slate-500 hover:bg-slate-400 transition-colors duration-700 border
+          boder-black'
+        >
+          Voltar pra Loja
+        </Link>
         
       </main>  
     </div>
