@@ -37,8 +37,8 @@ export function Cart() {
   return (
     <div className="w-full max-w-7xl mx-auto">
       <ScrollToTop />      
-      <div className="w-full max-w-7xl mx-auto border-4 border-t-0 border-slate-200 p-4">
-        <h1 className="font-medium text-2xl text-center my-4 ">Carrinho de Compras🐶🐱🐤</h1>
+      <div className="w-full max-w-7xl mx-auto p-4">
+        <h1 className="font-semibold text-3xl text-center text-slate-700/95 my-6 ">Carrinho de Compras <p>🐶🐱🐤</p></h1>
 
         <ModalOrder
           isOpen={isModalOpen}
@@ -54,11 +54,14 @@ export function Cart() {
       </ModalOrder>
 
         {cart.length === 0 && (
-          <div className='flex flex-col items-center justify-center min-w-7xl'>
-            <p className='font-medium'>Ops, o seu carrinho está vazio...</p>
+          <div className='flex flex-col items-center justify-center min-w-7xl min-h-[40vh]'>
+            <h3 className='mb-6 font-bold text-2xl text-center text-slate-600'>Ops, o seu carrinho está vazio...😔
+              <br /><br />Adicione produtos no carrinho na seção produtos!
+            </h3>
             <Link
               to="/#products"
-              className='bg-slate-600 my-3 px-3 py-1 text-white font-medium rounded'
+              className='bg-slate-600 my-3 px-3 py-3 text-white font-semibold rounded-lg
+              hover:bg-slate-500 transition duration-700'
             >
               Acessar Produtos
             </Link>
@@ -66,31 +69,32 @@ export function Cart() {
         )}
 
         {cart.map((item) => (
-          <section key={item.id} className="flex items-center justify-between border-b-2 border-gray-300">
-            <div>
+          <section key={item.id} className="flex flex-col md:flex-row md:items-center items-center justify-center md:justify-between border-b-2 border-gray-300">
+            <div className='w-full flex flex-col justify-center items-center md:justify-between md:w-fit overflow-visible'>
               <img
                 src={item.cover}
                 alt={item.title}
-                className="w-28"
+                className="w-48"
               />
-              <p className='w-10 py-3 text-center text-nowrap text-sm'>{item.title}</p>
+              <p className='md:w-52 py-2 text-center text-xl font-semibold px-6 md:px-0 text-slate-700 md:whitespace-nowrap'>{item.title}</p>
 
             </div>
-            <strong className='text-center'>Preço Un: <br />
+
+            <strong className='text-center text-slate-700 pb-3'>Preço Un: <br />
               {item.price.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL"
               })}
             </strong>
 
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-2 border border-slate-500 py-1 px-1.5 rounded-lg">
               <button
                 className="bg-slate-600 w-6 h-6 rounded text-white font-medium flex items-center justify-center"
                 onClick={ () => removeItemCart(item) }
               >
                 -
               </button>
-              <span className="font-normal text-center">
+              <span className="font-bold text-xl text-center text-slate-800">
                 {item.amount}
               </span>
               <button
@@ -101,8 +105,8 @@ export function Cart() {
               </button>
             </div>
 
-            <strong className="float-right text-justify">
-              <span className='float-right'>SubTotal:</span>
+            <strong className="md:float-right text-center text-slate-600 text-xl my-4">
+              <span className='md:float-right'>SubTotal:</span>
               <p>
                 {item.total.toLocaleString("pr-BR",{
                   style: "currency",
@@ -118,7 +122,7 @@ export function Cart() {
 
       {cart.length !== 0 && (
         <div className='w-full flex flex-row-reverse px-3'>
-          <div className='w-full sm:w-72 mt-4 border-slate-300 border-2 py-2 px-3 mb-10'>
+          <div className='w-full sm:w-72 mt-6 border-slate-300 border-2 rounded py-2 px-3 mb-10'>
             <p className=''>Quantidade de produtos: {qtdProducts}</p>
             <p className="font-bold  mb-4">Total: {total}</p>
             <button
