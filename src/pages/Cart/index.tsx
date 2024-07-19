@@ -1,26 +1,31 @@
 import { useContext, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ModalOrder } from '../../components/modal/index';
 import toast from 'react-hot-toast';
 import { ScrollToTop } from '../../components/ScrollToTop';
+
+import petshopdevAnimation from '../../assets/petshopdevAnimation.gif';
 
 export function Cart() {
 
   const { cart, total, addItemToCart, removeItemCart, qtdProducts, clearCart } = useContext(CartContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
+  
+  const navigate = useNavigate()
 
-  const handleCheckout = () : void => {
+  function handleCheckout() {
     setIsModalOpen(true);
   }
 
-  const closeModal = () => {
+  function closeModal() {
     clearCart();
 
     toast.success("🐾 Sua compra efetuda com sucesso! 🐾", {
-      duration: 3000,
+      duration: 5000,
 
       style: {
         borderRadius: 10,
@@ -32,6 +37,25 @@ export function Cart() {
     })
     
     setIsModalOpen(false);
+    setShowAnimation(true);
+
+    setTimeout(() => {
+      setShowAnimation(false);
+      navigate('/');
+    }, 5000);
+  };
+
+  if(showAnimation) {
+    return (
+      <>
+        <ScrollToTop />
+        <div className='w-full flex items-center justify-center'>
+          <img
+            src={petshopdevAnimation}
+            alt="Processando pedido" />
+        </div>
+      </>
+    )
   }
 
   return (
