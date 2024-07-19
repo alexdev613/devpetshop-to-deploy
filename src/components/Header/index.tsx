@@ -5,6 +5,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
 import logo from '../../assets/logopet.png';
+import { BsXSquareFill } from "react-icons/bs";
 
 export function Header() {
   const { cartAmount } = useContext(CartContext);
@@ -116,7 +117,11 @@ export function Header() {
                 </span>
               )}
             </Link>
-            <FaBars size={24} className="sm:hidden cursor-pointer" onClick={toggleMenu} />
+            {menuOpen ? (
+              <BsXSquareFill size={25} onClick={toggleMenu} />
+            ) : (
+              <FaBars size={25} className="sm:hidden cursor-pointer" onClick={toggleMenu} />
+            )}
             
           </div>
         </nav>
