@@ -6,7 +6,7 @@ import { ModalOrder } from '../../components/modal/index';
 import toast from 'react-hot-toast';
 import { ScrollToTop } from '../../components/ScrollToTop';
 
-import petshopdevAnimation from '../../assets/petshopdevAnimation.gif';
+import petshopdevAnimation from '../../assets/petshopdevAnimation.mp4';
 
 export function Cart() {
 
@@ -47,14 +47,20 @@ export function Cart() {
 
   if(showAnimation) {
     return (
-      <>
+      <div className='w-full flex flex-col justify-center items-center'>
         <ScrollToTop />
-        <div className='w-full flex items-center justify-center'>
-          <img
+        <div className='w-full md:w-1/2 flex items-center justify-center'>
+          <video
             src={petshopdevAnimation}
-            alt="Processando pedido" />
+            autoPlay
+            muted
+            loop
+            className='object-cover'
+            controlsList='nodownload nofullscreen noremoteplayback'
+            disablePictureInPicture
+          />
         </div>
-      </>
+      </div>
     )
   }
 
