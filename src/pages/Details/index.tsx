@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { ProductsProps } from '../Home';
+import { ProductsProps } from '../Home/sections/Products';
 
 import { CartContext } from '../../contexts/CartContext';
 

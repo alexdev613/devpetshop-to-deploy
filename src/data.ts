@@ -1,4 +1,4 @@
-import { ProductsProps } from "./pages/Home";
+import { ProductsProps } from "./pages/Home/sections/Products";
 
 
 export const productsData: ProductsProps[] = [
