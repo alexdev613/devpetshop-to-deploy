@@ -24,14 +24,14 @@ export function Cart() {
   function closeModal() {
     clearCart();
 
-    toast.success("🐾 Sua compra efetuda com sucesso! 🐾", {
+    toast.success("Sua compra efetuda com sucesso! 🐾", {
       duration: 5000,
 
       style: {
         borderRadius: 10,
         backgroundColor: "rgb(0, 125, 33)",
         fontWeight: 600,
-        color: "navy",
+        color: "white",
         height: 48,
       },
     })

@@ -33,7 +33,7 @@ export function ProductDetails() {
         borderRadius: 10,
         backgroundColor: "rgb(0, 125, 33)",
         fontWeight: 600,
-        color: "navy",
+        color: "white",
         height: 48
       }
     })
