@@ -32,6 +32,8 @@ export function Header() {
     setMenuOpen(false);
   }
 
+  // Função de verificação dos itens de menu por página:
+
   function getLinks() {
     if (isNotFoundPage) {
       return (
@@ -94,6 +96,8 @@ export function Header() {
     return null;
   };
 
+  // Componente Header em si:
+
   return (
     <>
       <header className="w-full px-4 bg-slate-300 relative z-10">
@@ -117,13 +121,15 @@ export function Header() {
                 </span>
               )}
             </Link>
+            
             {menuOpen ? (
-              <BsXSquareFill size={25} onClick={toggleMenu} />
+              <BsXSquareFill size={25} className="sm:hidden cursor-pointer" onClick={toggleMenu} />
             ) : (
               <FaBars size={25} className="sm:hidden cursor-pointer" onClick={toggleMenu} />
             )}
             
           </div>
+
         </nav>
       </header>
 
