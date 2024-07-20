@@ -20,6 +20,8 @@ export function Header() {
 
   const[scrollPosition, setScrollPosition] = useState(0);
   const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const [iconTransition, setIconTransition] = useState(false);
   
   // Verifica se a rota atual é uma rota "not found":
   const isNotFoundPage = !matchHome && 
@@ -29,6 +31,7 @@ export function Header() {
   
   function toggleMenu() {
     setMenuOpen(!menuOpen);
+    setIconTransition(true);
 
     if (!menuOpen) {
       setScrollPosition(window.scrollY);
@@ -123,6 +126,17 @@ export function Header() {
 
   }, [menuOpen, scrollPosition]);
 
+
+  useEffect(() => {
+    if(iconTransition) {
+      const timer = setTimeout(() => {
+        setIconTransition(false);
+      }, 1200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [iconTransition]);
+
   // Componente Header em si:
 
   return (
@@ -156,9 +170,9 @@ export function Header() {
             </Link>
             
             {menuOpen ? (
-              <BsXSquareFill size={25} className="sm:hidden cursor-pointer" onClick={toggleMenu} />
+              <BsXSquareFill size={25} className={`sm:hidden cursor-pointer ${iconTransition ? 'icon-fade-in' : 'block'}`} onClick={toggleMenu} />
             ) : (
-              <FaBars size={25} className="sm:hidden cursor-pointer" onClick={toggleMenu} />
+              <FaBars size={25} className={`sm:hidden cursor-pointer ${iconTransition ? 'icon-fade-in' : 'block'}`} onClick={toggleMenu} />
             )}
             
           </div>
@@ -169,8 +183,8 @@ export function Header() {
       {/* Menu "balão" à direita do header */}
       <div
         ref={menuRef}
-        className={`absolute top-24 right-4 bg-slate-100 rounded-md font-semibold shadow-lg
-        ${menuOpen ? 'block' : 'hidden'} px-6 py-3 sm:hidden z-20`}
+        className={`absolute top-24 left-0 bg-slate-100/90 rounded font-semibold shadow-lg
+        ${menuOpen ? 'menu-slide-in' : 'menu-slide-out'} w-[90%] px-12 py-3 sm:hidden z-20`}
       >
         <div className="max-w-7xl flex flex-col gap-3">
           {getLinks()}
