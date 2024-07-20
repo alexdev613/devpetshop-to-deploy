@@ -21,24 +21,24 @@ export function Footer() {
 
           <div className="flex flex-col gap-2">
             <h3 className="font-bold text-2xl mb-2">Links</h3>
-            <Link to={'#about'}>
+            <Link to='#about' target='_parent'>
               <p className='font-bold'>Sobre nós:
                 <span className='font-normal'> Conheça mais sobre nós!</span>
               </p>
             </Link>
             
-            <Link to={'#products'}>
+            <Link to='#products' target='_parent'>
               <p className='font-bold'>Produtos:
                 <span className='font-normal'> Explore nossa loja online</span>
               </p>
             </Link>
-            <Link to={'#services'}>
+            <Link to='#services' target='_parent'>
               <p className='font-bold'>Serviços:
                 <span className='font-normal'> Veja todos os serviços que oferecemos.</span>
               </p>
             </Link>
             
-            <Link to={'#feedback'}>
+            <Link to='#feedback' target='_parent'>
               <p className='font-bold'>Depoimentos:
                 <span className='font-normal'> Veja o que nossos clientes dizem.</span>
               </p>
