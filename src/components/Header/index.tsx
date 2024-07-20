@@ -1,5 +1,5 @@
 import { Link, useLocation, useMatch } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef} from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 import { FiShoppingCart } from "react-icons/fi";
@@ -17,6 +17,9 @@ export function Header() {
 
   // State para controlar a visibilidade dos links de menu
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const[scrollPosition, setScrollPosition] = useState(0);
+  const menuRef = useRef<HTMLDivElement | null>(null);
   
   // Verifica se a rota atual é uma rota "not found":
   const isNotFoundPage = !matchHome && 
@@ -26,6 +29,10 @@ export function Header() {
   
   function toggleMenu() {
     setMenuOpen(!menuOpen);
+
+    if (!menuOpen) {
+      setScrollPosition(window.scrollY);
+    }
   }
 
   function closeMenu() {
@@ -96,6 +103,26 @@ export function Header() {
     return null;
   };
 
+
+  useEffect(() => {
+    function handleScroll() {
+      if(menuOpen && (window.scrollY > scrollPosition + 200)) {
+        closeMenu();
+      }
+    }
+
+    if (menuOpen) {
+      window.addEventListener('scroll', handleScroll);
+    } else {
+      window.removeEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+  }, [menuOpen, scrollPosition]);
+
   // Componente Header em si:
 
   return (
@@ -141,6 +168,7 @@ export function Header() {
 
       {/* Menu "balão" à direita do header */}
       <div
+        ref={menuRef}
         className={`absolute top-24 right-4 bg-slate-100 rounded-md font-semibold shadow-lg
         ${menuOpen ? 'block' : 'hidden'} px-6 py-3 sm:hidden z-20`}
       >
