@@ -104,7 +104,13 @@ export function Header() {
         <nav className="flex items-center max-w-7xl h-24 justify-between px-5 mx-auto select-none">
           <Link to="/" className="font-bold text-2xl flex justify-center items-center">
             <img className="max-h-24 max-w-24" src={logo} alt="Logo" />
-            <span className="hidden md:block">PetShopDev</span>
+            <span className="hidden md:block text-slate-700">
+              DevPet
+              <span className="text-red-600">S</span>
+              <span className="text-[#854C9D]">h</span>
+              <span className="text-[#FF7A00]">o</span>
+              <span className="text-blue-600">p</span>
+            </span>
           </Link>
 
           <div className="hidden sm:flex gap-3 text-normal md:text-lg font-semibold text-slate-700">
