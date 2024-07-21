@@ -15,8 +15,9 @@ export function Header() {
   const matchCart = useMatch('/carrinho');
   const matchProductDetails = useMatch('/produto/:id');
 
-  // State para controlar a visibilidade dos links de menu
+  // States para controlar a visibilidade dos links de menu
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const[scrollPosition, setScrollPosition] = useState(0);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -30,13 +31,25 @@ export function Header() {
                          !matchProductDetails &&
                          location.pathname !== '/';
   
+  // function toggleMenu() {
+  //   setMenuOpen(!menuOpen);
+  //   setIconTransition(true);
+
+  //   if (!menuOpen) {
+  //     setScrollPosition(window.scrollY);
+  //   }
+  // }
+
   function toggleMenu() {
-    setMenuOpen(!menuOpen);
-    setIconTransition(true);
 
     if (!menuOpen) {
+      setMenuOpen(true);
+      setMenuVisible(true);
       setScrollPosition(window.scrollY);
+    } else {
+      setMenuOpen(false);
     }
+    setIconTransition(true);
   }
 
   function closeMenu() {
@@ -139,6 +152,29 @@ export function Header() {
     }
   }, [iconTransition]);
 
+  // useEffect que controla a animação de saída quando ela terminar
+  useEffect(() => {
+    function handleAnimationEnd() {
+      if(!menuOpen) {
+        setMenuVisible(false);
+      }
+    }
+
+    const menuElement = menuRef.current;
+
+    if (menuElement) {
+      menuElement.addEventListener('animationend', handleAnimationEnd);
+    }
+
+    return () => {
+      if (menuElement) {
+        menuElement.removeEventListener('animationend', handleAnimationEnd);
+      }
+    };
+
+  }, [menuOpen]);
+
+
   // Componente Header em si:
 
   return (
@@ -183,15 +219,17 @@ export function Header() {
       </header>
 
       {/* Menu "balão" à direita do header */}
-      <div
-        ref={menuRef}
-        className={`absolute top-24 left-0 bg-slate-100/90 rounded font-semibold shadow-lg
-        ${menuOpen ? 'menu-slide-in' : 'menu-slide-out'} w-[90%] px-12 py-3 sm:hidden z-20`}
-      >
-        <div className="max-w-7xl flex flex-col gap-3">
-          {getLinks()}
+      {menuVisible && (
+        <div
+          ref={menuRef}
+          className={`absolute top-24 left-0 bg-slate-100/90 rounded font-semibold shadow-lg
+          ${menuOpen ? 'menu-slide-in' : 'menu-slide-out'} w-[90%] px-12 py-3 sm:hidden z-20`}
+        >
+          <div className="max-w-7xl flex flex-col gap-3">
+            {getLinks()}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
