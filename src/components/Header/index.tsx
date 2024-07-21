@@ -21,6 +21,7 @@ export function Header() {
   const[scrollPosition, setScrollPosition] = useState(0);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
+  // Para passar a mundança de estado e controlar os efeitos de fade nos ícones de menu
   const [iconTransition, setIconTransition] = useState(false);
   
   // Verifica se a rota atual é uma rota "not found":
@@ -106,7 +107,7 @@ export function Header() {
     return null;
   };
 
-
+  // useEffect para verificar se o usuário fez scroll com o menu aberto em dispositivos móveis
   useEffect(() => {
     function handleScroll() {
       if(menuOpen && (window.scrollY > scrollPosition + 200)) {
@@ -127,6 +128,7 @@ export function Header() {
   }, [menuOpen, scrollPosition]);
 
 
+  // useEffect para verificar se o estado iconTransition é true e mudá-lo pra false depois de algum tempo
   useEffect(() => {
     if(iconTransition) {
       const timer = setTimeout(() => {
